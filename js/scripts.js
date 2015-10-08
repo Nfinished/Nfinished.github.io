@@ -404,9 +404,7 @@ function(t) {
                     navigator.userAgent)
             }, n
         }()
-    }.call(this), $(window).load(function() {
-        $(".preloader").fadeOut(1e3), $("body").removeClass("prl")
-    }), $(document).ready(function() {
+    }.call(this), $(document).ready(function() {
         $(".scroll").click(function(t) {
             t.preventDefault(), $("html,body").animate({
                 scrollTop: $(this.hash).offset().top
@@ -423,13 +421,7 @@ function(t) {
                 currentClass: "selected",
                 changeHash: !1,
                 scrollSpeed: 750
-            }), paceOptions = {
-                target: ".preloader",
-                elements: {
-                    checkInterval: 100,
-                    selectors: [".preloader"]
-                }
-            };
+            });
         $("#pageslide").outerWidth();
         $(".slideIt, #pageslide a").on("click", function(t) {
             t.preventDefault(), $(".slideIt").toggleClass("active"),

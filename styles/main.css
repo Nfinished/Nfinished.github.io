@@ -41,10 +41,6 @@ img {
     height:100%;
     width:100%
 }
-.prl * {
-    -webkit-animation:none!important;
-    animation:none!important
-}
 .corner-top-left {
     position:absolute;
     left:0;
@@ -876,15 +872,6 @@ footer {
     width:100%;
     height:20px;
     background:#4e7210
-}
-.preloader {
-    background-color:#4c4746;
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:99999;
-    border-top:10px solid gray;
-    border-bottom:10px solid gray
 }
 .pace {
     pointer-events:none;
