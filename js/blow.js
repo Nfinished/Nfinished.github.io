@@ -28,7 +28,7 @@ function setYPos(y) {
 window.onload = function() {
   for (var i = 0; i < lyrics.length; i++) {
     setTimeout(function(state) {
-    window.history.replaceState(null, null, arg1);                        //Set page URL
+    window.history.replaceState(null, null, state.word);                        //Set page URL
     $("title").text(state.word);                                            //Set page title
     $("h1").show().text(state.word);                                        //Set page content and make sure it's visible
 
