@@ -75,17 +75,17 @@ var lyrics = [
     timestamp: 17746
   },
   {
-    console: "none",
+    logging: "none",
     word: "V",
     timestamp: 17900
   },
   {
-    console: "VIP",
+    logging: "VIP",
     word: "VI",
     timestamp: 18100
   },
   {
-    console: "none",
+    logging: "none",
     word: "VIP",
     timestamp: 18275
   },
@@ -140,6 +140,7 @@ var lyrics = [
     timestamp: 24669
   },
   {
+    fadeOut: 250,
     word: "US",
     timestamp: 24996
   },
@@ -156,51 +157,52 @@ var lyrics = [
     timestamp: 26500
   },
   {
+    fadeOut: 250,
     word: "ME",
     timestamp: 26834
   },
   {
-    console: "IIIIIIT'S",
+    logging: "IIIIIIT'S",
     word: "I",
     timestamp: 28225
   },
   {
-    console: "none",
+    logging: "none",
     word: "II",
     timestamp: 28325
   },
   {
-    console: "none",
+    logging: "none",
     word: "III",
     timestamp: 28375
   },
   {
-    console: "none",
+    logging: "none",
     word: "IIII",
     timestamp: 28425
   },
   {
-    console: "none",
+    logging: "none",
     word: "IIIII",
     timestamp: 28475
   },
   {
-    console: "none",
+    logging: "none",
     word: "IIIIII",
     timestamp: 28525
   },
   {
-    console: "none",
+    logging: "none",
     word: "IIIIIIT",
     timestamp: 28575
   },
   {
-    console: "none",
+    logging: "none",
     word: "IIIIIIT'",
     timestamp: 28625
   },
   {
-    console: "none",
+    logging: "none",
     word: "IIIIIIT'S",
     timestamp: 28675
   },
@@ -235,5 +237,18 @@ var lyrics = [
   {
     word: "THE",
     timestamp: 32705
+  },
+  {
+    logging: "none",
+    word: "D",
+    timestamp: 32967
+  },
+  {
+    word: "DJ",
+    timestamp: 33375
+  },
+  {
+    word: "DOWN",
+    timestamp: 33820
   },
 ];
