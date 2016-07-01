@@ -1,0 +1,81 @@
+// compileCompressed: ../css/styles.css
+
+@import 'bourbon/bourbon';
+
+$black: #000 !default;
+$white: #fff !default;
+$text-color: darken($white, 20%) !default;
+
+body {
+    @include size(100%);
+    background-color: lighten($black, 20%);
+    overflow: hidden;
+    position: absolute;
+}
+
+.wrapper {
+    @include animation(slideUpOne 1.5s linear 3.25s both, slideUpTwo 1.5s linear 6.25s forwards);
+    @include position(absolute, null null 10px 10px);
+}
+
+h1 {
+    color: $text-color;
+    font-family: 'Assistant', sans-serif;
+    font-size: 3rem;
+    line-height: 2rem;
+    opacity: 0;
+
+    &.a {
+        @include animation(fadeIn 3s ease-in 0s forwards);
+    }
+
+    &.b {
+        @include animation(fadeIn 3s ease-in 3s forwards);
+    }
+
+    &.c {
+        @include animation(fadeIn 3s ease-in 6s forwards);
+    }
+}
+
+a {
+    color: $text-color;
+    &:hover,
+    &:visited {
+        color: $text-color;
+    }
+
+    &.phone {
+        text-decoration: none;
+    }
+}
+
+@include keyframes(fadeIn) {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@include keyframes(slideUpOne) {
+    from {
+        @include transform(translateY(50%));
+    }
+
+    to {
+        @include transform(translateY(25%));
+    }
+}
+
+@include keyframes(slideUpTwo) {
+    from {
+        @include transform(translateY(25%));
+    }
+
+    to {
+        @include transform(translateY(0%));
+    }
+}
