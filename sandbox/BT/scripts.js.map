@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["scripts.js"],"sourcesContent":["\r\n\r\n(function(window, document, $) {\r\n  $('a').hover(function() {\r\n    $('#footer span').html($(this).attr('data-value'));\r\n  });\r\n}( window, document, jQuery ));\r\n"],"file":"scripts.js"}
