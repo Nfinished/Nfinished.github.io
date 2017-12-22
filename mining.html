@@ -31,7 +31,7 @@
         </thead>
         <tbody>
           <tr v-for="user in users">
-            <td>{{ user.name }}</td>
+            <td>{{ user.name.toLowerCase() }}</td>
             <td>{{ user.total.toLocaleString() }}</td>
           </tr>
         </tbody>
@@ -51,6 +51,11 @@
     .stats {
       font-family: monospace;
       margin-top: 100px;
+    }
+    
+    .stats-meta th {
+      text-align: left;
+      width: 100px;
     }
   </style>
   <script>
