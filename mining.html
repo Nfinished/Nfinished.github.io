@@ -31,7 +31,7 @@
           <th>Hashes</th>
         </thead>
         <tbody>
-          <tr v-for="user in users">
+          <tr v-for="user in users" v-if="user.total">
             <td>{{ user.name.toLowerCase() }}</td>
             <td>{{ user.total.toLocaleString() }}</td>
           </tr>
@@ -89,8 +89,12 @@
             this.miner = new CoinHive.User('xCMPcwmATQcc8DfGnAAPxOrwqqd6xlOV', this.username.toLowerCase(), {
             	throttle: 0.3,
             })
-            this.miner.start(CoinHive.IF_EXCLUSIVE_TAB)
-            this.minerIsRunning = true
+            if (!this.miner.isMobile()) {
+              this.miner.start(CoinHive.IF_EXCLUSIVE_TAB)
+              this.minerIsRunning = true
+            } else {
+              alert("Sorry! Mining on mobile devices is disabled.")
+            }
           } else {
             alert("Hey! Make sure you enter a username before you start mining!")
           }
@@ -100,7 +104,7 @@
           this.minerIsRunning = false
         },
         getStatistics () {
-          fetch(`https://api.coinhive.com/user/top?secret=OrBRONhxukAtNFZ06qGu4XRldUiB6XnL&count=10`, this.requestObject)
+          fetch(`https://api.coinhive.com/user/top?secret=OrBRONhxukAtNFZ06qGu4XRldUiB6XnL`, this.requestObject)
             .then(response => response.json())
             .then(data => {
               this.users = data.users
