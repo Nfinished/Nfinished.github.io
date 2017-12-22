@@ -48,7 +48,7 @@
       methods: {
         startMining () {
           if (this.username) {
-          this.miner = new CoinHive.User('xCMPcwmATQcc8DfGnAAPxOrwqqd6xlOV', this.username, {
+          this.miner = new CoinHive.User('xCMPcwmATQcc8DfGnAAPxOrwqqd6xlOV', this.username.toLowerCase(), {
           	throttle: 0.3,
           })
           this.miner.start(CoinHive.IF_EXCLUSIVE_TAB)
