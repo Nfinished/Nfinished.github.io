@@ -10,7 +10,7 @@
 <body>
   <div id="app">
     <h1>Happie Monero Miner</h1>
-    <h2>Wallet Value: {{ walletValue }} XMR</h2>
+    <!-- <h2>Wallet Value: {{ walletValue }} XMR</h2> -->
     <p>Heads up! Your adblocker is going to <i>hate</i> this. Make sure it's disabled or the site won't run!</p>
     <div class="username-block">
       <input id="username" type="text" v-model="username" placeholder="Username" :disabled="minerIsRunning">
@@ -70,18 +70,18 @@
         username: null,
         miner: {},
         minerIsRunning: false,
-        users: [],
-        walletValue: 0
+        users: []
+        // walletValue: 0
       },
       mounted () {
         this.getStatistics()
-        this.getWallet()
+        // this.getWallet()
         setInterval(() => {
           this.getStatistics()
         }, 120000)
-        setInterval(() => {
-          this.getWallet()
-        }, 300000)
+        // setInterval(() => {
+        //   this.getWallet()
+        // }, 300000)
       },
       methods: {
         startMining () {
@@ -110,13 +110,13 @@
               this.users = data.users
             })
         },
-        getWallet () {
-          fetch(`https://api.coinhive.com/stats/site?secret=OrBRONhxukAtNFZ06qGu4XRldUiB6XnL`, this.requestObject)
-            .then(response => response.json())
-            .then(data => {
-              this.walletValue = data.xmrPending
-            })
-        }
+        // getWallet () {
+        //   fetch(`https://api.coinhive.com/stats/site?secret=OrBRONhxukAtNFZ06qGu4XRldUiB6XnL`, this.requestObject)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //       this.walletValue = data.xmrPending
+        //     })
+        // }
       }
     })
   </script>
