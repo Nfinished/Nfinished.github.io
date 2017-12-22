@@ -3,6 +3,8 @@
 <head>
   <title>Happie Monero Miner</title>
   <script src="https://authedmine.com/lib/authedmine.min.js"></script>
+    
+  </script>
   <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
@@ -19,6 +21,21 @@
       <div>Hashes per second: {{ miner.getHashesPerSecond() }}</div>
       <div>Hashes solved: {{ miner.getTotalHashes([true]) }}</div>
       <div>Total accepted hashes: {{ miner.getAcceptedHashes() }}</div>
+    </div>
+    <div class="stats-meta">
+      <h2>Hashing Leaderboard</h2>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Hashes</th>
+        </thead>
+        <tbody>
+          <tr v-for="user in users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.total.toLocaleString() }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   
@@ -39,28 +56,44 @@
     var app = new Vue({
       el: '#app',
       data: {
+        requestObject: {
+          headers: new Headers(),
+          method: 'GET'
+        },
         username: null,
         miner: {},
-        minerIsRunning: false
+        minerIsRunning: false,
+        users: []
       },
       mounted () {
+        this.getStatistics()
+        setInterval(() => {
+          this.getStatistics
+        }, 180000)
       },
       methods: {
         startMining () {
           if (this.username) {
-          this.miner = new CoinHive.User('xCMPcwmATQcc8DfGnAAPxOrwqqd6xlOV', this.username.toLowerCase(), {
-          	throttle: 0.3,
-          })
-          this.miner.start(CoinHive.IF_EXCLUSIVE_TAB)
-          this.minerIsRunning = true
-        } else {
-          alert("Hey! Make sure you enter a username before you start mining!")
+            this.miner = new CoinHive.User('xCMPcwmATQcc8DfGnAAPxOrwqqd6xlOV', this.username.toLowerCase(), {
+            	throttle: 0.3,
+            })
+            this.miner.start(CoinHive.IF_EXCLUSIVE_TAB)
+            this.minerIsRunning = true
+          } else {
+            alert("Hey! Make sure you enter a username before you start mining!")
+          }
+        },
+        stopMining () {
+          this.miner.stop()
+          this.minerIsRunning = false
+        },
+        getStatistics () {
+          fetch(`https://api.coinhive.com/user/top?secret=OrBRONhxukAtNFZ06qGu4XRldUiB6XnL&count=10`, this.requestObject)
+            .then(response => response.json())
+            .then(data => {
+              this.users = data.users
+            })
         }
-      },
-      stopMining () {
-        this.miner.stop()
-        this.minerIsRunning = false
-      }
       }
     })
   </script>
